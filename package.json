@@ -7,10 +7,10 @@
     "test": "test"
   },
   "dependencies": {
-    "object-merge": "~2.5.1",
     "debug": "~0.7.4",
     "lru-cache": "^2.5.0",
-    "locking-cache": "https://github.com/thedeveloper/node-locking-cache/tarball/callback-limit"
+    "locking-cache": "https://github.com/thedeveloper/node-locking-cache/tarball/callback-limit",
+    "extend": "^1.2.1"
   },
   "devDependencies": {
     "mocha": "^1.17.1",
