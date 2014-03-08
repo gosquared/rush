@@ -1,6 +1,6 @@
 {
   "name": "node-rush",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "LRU cache for busy apps in a hurry",
   "main": "lib/rush.js",
   "directories": {
