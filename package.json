@@ -1,6 +1,6 @@
 {
   "name": "rush",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "LRU cache for busy apps in a hurry",
   "main": "lib/rush.js",
   "directories": {
