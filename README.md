@@ -7,6 +7,10 @@ Rush is designed for apps fetching and accessing data with high asynchronous con
 
 When you want to fetch data from somewhere, using `rush.lockedFetch` will fetch the data, and cache the result. If an error was passed to the fetcher's callback, then this is also cached. Subsequent calls to `rush.lockedFetch` will use cached data from the LRU until it expires.
 
+# Install
+
+    npm install node-rush
+
 # Usage
 
 ```javascript
