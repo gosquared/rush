@@ -5,7 +5,7 @@ LRU cache for busy apps in a hurry.
 
 Rush is designed for apps fetching and accessing data with high asynchronous concurrency. It is useful if you want fast in-memory caching for data being fetched from an external resource.
 
-When you want to fetch data from somewhere, using `rush.get` will fetch the data, and cache the result. If an error was passed to the fetcher's callback, then this is also cached. Subsequent calls to `rush.lockedFetch` will use cached data from the LRU until it expires.
+When you want to fetch data from somewhere, using `rush.get` will fetch the data, and cache the result. If an error was passed to the fetcher's callback, then this is also cached. Subsequent calls will use cached data from the LRU until it expires.
 
 # Install
 
