@@ -1,5 +1,5 @@
 var assert = require('assert');
-var rush = require('../lib/rush');
+var Rush = require('../lib/rush');
 
 describe('rush', function (){
   it('queues callbacks and calls them with fetch results', function(done) {
@@ -16,10 +16,10 @@ describe('rush', function (){
       });
     };
 
-    var get = rush()(fetch);
-    get('tea', testResult);
-    get('tea', testResult);
-    get('tea', done);
+    var r = Rush();
+    r.get('tea', fetch, testResult);
+    r.get('tea', fetch, testResult);
+    r.get('tea', fetch, done);
   });
 
   it('caches errors with configurable ttl', function(done) {
@@ -35,30 +35,29 @@ describe('rush', function (){
       });
     };
 
-    var r = rush({ errTTL: 1 });
-    var get = r(fetch);
-    get('pug', testResult);
-    get('pug', testResult);
+    var r = Rush({ errTTL: 1 });
+    r.get('pug', fetch, testResult);
+    r.get('pug', fetch, testResult);
     setTimeout(function() {
-      var get = r(setImmediate);
-      get('pug', done); // err cache should have expired
+      r.get('pug', setImmediate, done); // err cache should have expired
     }, 5);
   });
 
   it('disposes key ttl when key deleted', function(done) {
-    var get = rush()(function(cb){
+    var r = Rush();
+    var fetch = function(cb){
       return setImmediate(function() {
         cb(new Error());
       });
-    });
+    };
 
     // ttl is set on cached error
-    get('foo');
+    r.get('foo', fetch);
 
     setImmediate(function() {
-      assert(get.cache._timeouts.foo);
-      get.cache.del('foo');
-      assert(!get.cache._timeouts.foo);
+      assert(r._timeouts.foo);
+      r.del('foo');
+      assert(!r._timeouts.foo);
       done();
     });
   });
@@ -71,9 +70,9 @@ describe('rush', function (){
       }, 10);
     };
 
-    var get = rush({ timeout: 1 })(fetch);
+    var r = Rush({ timeout: 1 });
     var i = 0;
-    get('crumpets', function(err) {
+    r.get('crumpets', fetch, function(err) {
       // receives error when disposed
       assert.equal(err.message, 'timeout');
       // once disposed should not be called again
@@ -81,7 +80,7 @@ describe('rush', function (){
     });
     // next call after queue maxAge ms has passed
     setTimeout(function() {
-      get('crumpets');
+      r.get('crumpets', fetch);
     }, 5);
   });
 });
