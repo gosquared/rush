@@ -52,6 +52,7 @@ describe('rush', function (){
       });
     });
 
+    // ttl is set on cached error
     get('foo');
 
     setImmediate(function() {
