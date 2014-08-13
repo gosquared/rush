@@ -27,7 +27,7 @@ var fetchRow = function(id, cb) {
      * The results of this function are cached by rush.
      *
      * It is wise to set a timeout on your fetch, so that
-     * it calls `done` with with an error if it takes too long
+     * it calls `done` with an error if it takes too long
      * to complete. This is useful in case your external
      * resource is overloaded and being slow. If configured,
      * rush will cache this error and prevent overloading the
