@@ -1,5 +1,10 @@
-Rush
-===
+# Rush
+
+[![Travis](https://api.travis-ci.org/gosquared/rush.svg)](https://travis-ci.org/gosquared/rush)
+[![Dependencies](https://david-dm.org/gosquared/rush.svg)](https://david-dm.org/gosquared/rush)
+[![Join the chat at https://gitter.im/gosquared/rush](https://img.shields.io/badge/gitter-join%20chat-blue.svg)](https://gitter.im/gosquared/rush)
+
+[![NPM](https://nodei.co/npm/node-rush.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/node-rush)
 
 LRU cache for busy apps in a hurry.
 
