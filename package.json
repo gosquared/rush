@@ -13,7 +13,7 @@
     "mocha": "^1.21.4"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
